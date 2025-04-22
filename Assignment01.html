@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Add transition for sidebar */
+        #sidebar {
+            right: -100%;
+            /* Hidden off the screen initially */
+            transition: right 0.3s ease-in-out;
+        }
+
+        #sidebar.active {
+            right: 0;
+            /* Slides in from the right when active */
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #1a1a1a, #6d6d6d);
+            /* Dark gray to lighter gray */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+    </script>
+
+</head>
+
+
+<!-- Navigation Bar -->
+<nav class=" text-black bg-white py-6 px-20 fixed top-0 w-full z-50 flex justify-between items-center">
+    <!-- Left side: Email and Phone -->
+    <div class="flex items-center space-x-4">
+        <a href="#" class="flex items-center space-x-2 hover:underline">
+            <i class="fas fa-envelope text-xl"></i>
+            <span class="hidden md:inline">i222673@nu.edu.pk</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 hover:underline">
+            <i class="fas fa-phone text-xl"></i>
+            <span class="hidden md:inline">(+92) 3360579307</span>
+        </a>
+    </div>
+
+    <!-- Right side: Navigation Links and Hamburger Icon -->
+    <div class="flex items-center">
+        <!-- Navigation Links for larger screens -->
+        <ul class="hidden md:flex space-x-6">
+            <li><a href="#home" class="hover:underline">Home</a></li>
+            <li><a href="#profile" class="hover:underline">Personal Profile</a></li>
+            <li><a href="#gallery" class="hover:underline">Gallery</a></li>
+            <li><a href="#goals" class="hover:underline">Career Goals</a></li>
+            <li><a href="#projects" class="hover:underline">Projects</a></li>
+            <li><a href="#skills" class="hover:underline">Skills and Interests</a></li>
+            <li><a href="#contact" class="hover:underline">Contact Us</a></li>
+        </ul>
+
+        <!-- Hamburger Icon for smaller screens -->
+        <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<!-- Sidebar Menu for smaller screens -->
+<div id="sidebar"
+    class="fixed top-0 right-0 z-50 w-64 h-full bg-gray-800 text-white p-6 md:hidden flex flex-col items-start space-y-4">
+    <!-- Close Button inside the Sidebar -->
+    <button class="focus:outline-none self-end mb-4" onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+
+    <!-- Sidebar Links -->
+    <ul class="space-y-6">
+        <li><a href="#home" class="hover:underline">Home</a></li>
+        <li><a href="#profile" class="hover:underline">Personal Profile</a></li>
+        <li><a href="#gallery" class="hover:underline">Gallery</a></li>
+        <li><a href="#goals" class="hover:underline">Career Goals</a></li>
+        <li><a href="#projects" class="hover:underline">Projects</a></li>
+        <li><a href="#skills" class="hover:underline">Skills and Interests</a></li>
+        <li><a href="#contact" class="hover:underline">Contact Us</a></li>
+    </ul>
+</div>
+
+<!-- Hero Section (Home) -->
+<section id="home" class="h-screen flex flex-col justify-center items-center relative bg-gray-100 shadow-lg"
+    style="border-bottom-left-radius: 100px;box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); border-bottom-right-radius: 100px; background-color:#f2f1f0 ;">
+    <div class="p-8 text-center z-10">
+        
+        <h1 class="text-5xl font-bold mb-16 gradient-text leading-snug">
+            Building digital <br> products, brands, <br> and experiences
+        </h1>
+        <a href="#profile"
+            class="mt-8 px-10 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-800 mx-auto">
+            Learn More
+        </a>
+    </div>
+</section>
+
+
+
+
+<!-- Personal Profile Section -->
+<section id="profile" class="mt-20  min-h-screen py-20 flex flex-col space-evenly justify-center items-center">
+    <h2 class="text-4xl font-bold mb-14 gradient-text  text-center">Personal Profile</h2>
+
+    <!-- Flex Container with 'justify-around' for better spacing -->
+    <div
+        class="flex flex-col sm:flex-col md:flex-row md:justify-around items-center w-full max-w-screen-lg mx-auto px-4">
+
+        <!-- Profile Image with Responsive Sizes -->
+        <img class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full mx-auto mb-4 md:mb-0"
+            src="h.jpeg" alt="Profile Picture">
+
+        <!-- Profile Description with Padding -->
+        <div class="max-w-2xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 text-left">
+            <p class="text-lg sm:text-xl leading-snug">
+                Hi, I’m <strong> Muhammad Haris Khan </strong>, <em> passionate individual with a strong background in
+                    Software Engineering </em> machine learning,
+                and environmental studies. I am currently doing my BS from FAST National University Of Science And
+                Technology and am currently expanding my
+                knowledge in SWeb development. With hands-on experience in Front-end, I strive to
+                apply my skills to solve real-world challenges. My goal is to contribute to projects that positively
+                impact society, whether through Software Engineering or sustainable tech solutions.
+            </p>
+        </div>
+    </div>
+
+    <!-- Social Links with Font Awesome Icons -->
+    <div class="mt-8 flex space-x-6 justify-center">
+        <a href="https://facebook.com"
+            class="text-blue-500 transform hover:scale-125 hover:text-blue-700 transition duration-300 ease-in-out">
+            <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="https://linkedin.com"
+            class="text-blue-500 transform hover:scale-125 hover:text-blue-700 transition duration-300 ease-in-out">
+            <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a href="https://github.com"
+            class="text-gray-400 transform hover:scale-125 hover:text-blue transition duration-300 ease-in-out">
+            <i class="fab fa-github fa-2x"></i>
+        </a>
+        <a href="https://twitter.com"
+            class="text-blue-400 transform hover:scale-125 hover:text-blue-600 transition duration-300 ease-in-out">
+            <i class="fab fa-twitter fa-2x"></i>
+        </a>
+    </div>
+</section>
+
+
+<section id="gallery" class="min-h-screen py-20 bg-gray-800"
+    style="border-top-left-radius: 100px; border-top-right-radius: 100px;  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); background-color:#f2f1f0 ;">
+    <h2 class="text-6xl font-bold text-center gradient-text mb-12">Gallery</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-6 px-14">
+        <!-- Image 1 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c1.jpg" alt="Image 1"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">Ferrari F8 Tributo</p>
+        </div>
+
+        <!-- Image 2 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c2.jpg" alt="Image 2"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">Lamborghini Huracán EVO</p>
+        </div>
+
+        <!-- Image 3 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c3.jpg" alt="Image 3"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">Porsche 911 Turbo S</p>
+        </div>
+
+        <!-- Image 4 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c6.jpg" alt="Image 4"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">McLaren 720S</p>
+        </div>
+
+        <!-- Image 1 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c7.jpg" alt="Image 1"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">Aston Martin Vantage</p>
+        </div>
+
+        <!-- Image 2 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c8.jpeg" alt="Image 2"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">Bugatti Chiron</p>
+        </div>
+
+        <!-- Image 3 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c9.jpg" alt="Image 3"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">Ford GT</p>
+        </div>
+
+        <!-- Image 4 -->
+        <div>
+            <div
+                class="w-full h-48 md:h-64 lg:h-72 overflow-hidden rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)]">
+                <img src="c10.jpg" alt="Image 4"
+                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110 hover:brightness-125 rounded-lg">
+            </div>
+            <p class="text-center  mt-2">Chevrolet Corvette C8</p>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Career Goals Section    used Flex for goals in column direction so that to align all the section properly -->
+<section id="goals" class="min-h-screen py-20 flex flex-col space-evenly justify-center items-center w-full">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text font-bold text-center mb-8 w-full">Career
+        Goals</h2>
+    <div class="w-full mt-10 px-4 md:px-8 lg:px-16">
+        <div class="mb-8 ">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold  gradient-text mb-4 w-full">Short-Term Goals</h3>
+            <ul class="list-disc text-left px-4 md:px-16 lg:px-32 text-base sm:text-lg md:text-xl">
+                <li>Learn advanced web development frameworks.</li>
+                <li>Contribute to open-source projects.</li>
+                <li>Enhance problem-solving skills in coding challenges.</li>
+            </ul>
+        </div>
+        <div class="mb-8 ">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold  gradient-text  mb-4 w-full  ">Long-Term Goals</h3>
+            <ul class="list-disc text-left px-4 md:px-16 lg:px-32 text-base sm:text-lg md:text-xl">
+                <li>Become a lead developer in a tech company.</li>
+                <li>Start a tech-focused non-profit organization.</li>
+                <li>Teach web development to beginners.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold  gradient-text mb-4 w-full">Call-to-Action</h3>
+            <ul class="list-disc text-left px-4 md:px-16 lg:px-32 text-base sm:text-lg md:text-xl">
+                <li>Every step I take brings me closer to transforming ideas into reality. By setting clear goals,
+                    learning continuously, and embracing challenges, I’m paving the path toward a future of impactful
+                    innovation and growth. Together, we can achieve greatness</li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Projects Section  used grid so that to align all the cards alomg ros and columns-->
+<section id="projects" class="min-h-screen py-6 lg:py-10 "
+    style="background-color:#f2f1f0 ;border-top-left-radius: 100px; border-top-right-radius: 100px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); ">
+    <h2 class="text-3xl font-bold lg:text-6xl text-center gradient-text mb-12 mt-10">Projects</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 lg:px-16 ">
+        <!-- Project 1 -->
+        <div
+            class="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+            <h3 class="text-2xl font-bold mb-4 gradient-text text-gray-800">TaskMaster</h3>
+            <p class="mb-4 text-gray-600">TaskMaster is a task management app that helps users organize their daily
+                tasks using a simple and intuitive interface.</p>
+            <p class="text-sm mb-4 text-gray-500">Technologies Used: HTML, CSS, JavaScript</p>
+            <a href="#" class="text-blue-500 hover:underline">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-green-500 hover:underline">Live Demo</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+            class="bg-white p-6 rounded-lg shadow-lg  transition-transform duration-500 ease-in-out transform hover:scale-105">
+            <h3 class="text-2xl font-bold mb-4 gradient-text text-gray-800">Python Blog App</h3>
+            <p class="mb-4 text-gray-600">A blogging platform where users can create, edit, and delete
+                posts. It includes user authentication for a personalized experience.</p>
+            <p class="text-sm mb-4 text-gray-500">Technologies Used: Python, Flask, SQL</p>
+            <a href="#" class="text-blue-500 hover:underline">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-green-500 hover:underline">Live Demo</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+            class="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+            <h3 class="text-2xl font-bold mb-4 gradient-text text-gray-800">ShopEasy</h3>
+            <p class="mb-4 text-gray-600">An e-commerce platform offering a seamless shopping experience with shopping
+                cart functionality, and secure checkout.</p>
+            <p class="text-sm mb-4 text-gray-500">Technologies Used: React, Node.js, MongoDB</p>
+            <a href="#" class="text-blue-500 hover:underline">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-green-500 hover:underline">Live Demo</a>
+        </div>
+
+        <!-- Project 4 -->
+        <div
+            class="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+            <h3 class="text-2xl font-bold mb-4 gradient-text text-gray-800">FitnessTrack</h3>
+            <p class="mb-4 text-gray-600">A fitness tracking app that helps users log their workouts, set fitness goals,
+                and monitor progress with real-time analytics and reports.</p>
+            <p class="text-sm mb-4 text-gray-500">Technologies Used: Angular, Firebase</p>
+            <a href="#" class="text-blue-500 hover:underline">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-green-500 hover:underline">Live Demo</a>
+        </div>
+
+        <!-- Project 5 -->
+        <div
+            class="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">EduLearn</h3>
+            <p class="mb-4 text-gray-600">An online learning management system (LMS) offering both students and Teachers
+                with advanced course management features.</p>
+            <p class="text-sm mb-4 text-gray-500">Technologies Used: Vue.js, Laravel</p>
+            <a href="#" class="text-blue-500 hover:underline">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-green-500 hover:underline">Live Demo</a>
+        </div>
+
+        <!-- Project 6 -->
+        <div
+            class="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Greenify</h3>
+            <p class="mb-4 text-gray-600">An environmental monitoring app designed to track air quality and provide
+                actionable insights for sustainable urban development.</p>
+            <p class="text-sm mb-4 text-gray-500">Technologies Used: Django, PostgreSQL</p>
+            <a href="#" class="text-blue-500 hover:underline">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-green-500 hover:underline">Live Demo</a>
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- Skills and Interests Section   used grid so that to align the rows and columns -->
+
+<section id="skills" class="min-h-screen py-20">
+    <h2 class="text-3xl lg:text-6xl font-bold text-center gradient-text mb-12">Skills and Interests</h2>
+
+    <!-- Skills Section -->
+    <h3 class="text-3xl font-bold text-center gradient-text mb-8">Skills</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 lg:px-24">
+        <!-- Skill 1 -->
+        <div class="text-center">
+            <i class="fas fa-pencil-ruler fa-2x text-gray-800 mb-4"></i> <!-- Font Awesome Icon -->
+            <h3 class="text-xl font-semibold mb-2">
+                UX & UI
+            </h3>
+                <!-- Star Rating -->
+                <span class="text-yellow-500 ">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i> <!-- Half-star -->
+                </span>
+            
+            <p class="text-gray-600">Designing interfaces that are intuitive, efficient, and enjoyable to use.</p>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="text-center">
+            <i class="fas fa-laptop-code fa-2x text-gray-800 mb-4"></i> <!-- Font Awesome Icon -->
+            <h3 class="text-xl font-semibold mb-2">
+                Web & Mobile App
+            </h3>
+                <!-- Star Rating -->
+                <span class="text-yellow-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+            
+            <p class="text-gray-600">Transforming ideas into exceptional web and mobile app experiences.</p>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="text-center">
+            <i class="fas fa-paint-brush fa-2x text-gray-800 mb-4"></i> <!-- Font Awesome Icon -->
+            <h3 class="text-xl font-semibold mb-2">
+                Design & Creative
+            </h3>
+                <!-- Star Rating -->
+                <span class="text-yellow-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i> <!-- Half-star -->
+                    <i class="far fa-star"></i> <!-- Empty star -->
+                </span>
+            
+            <p class="text-gray-600">Crafting visually stunning designs that connect with your audience.</p>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="text-center">
+            <i class="fas fa-code fa-2x text-gray-800 mb-4"></i> <!-- Font Awesome Icon -->
+            <h3 class="text-xl font-semibold mb-2">
+                Development
+            </h3>
+                <!-- Star Rating -->
+                <span class="text-yellow-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+            
+            <p class="text-gray-600">Bringing your vision to life with the latest technology and design trends.</p>
+        </div>
+    </div>
+
+    <!-- Interests Section -->
+    <div class="mt-16 px-6 lg:px-24">
+        <h3 class="text-3xl font-bold text-center gradient-text mb-8">Interests</h3>
+
+
+
+        <div class="flex justify-center space-x-8 mt-8 mb-8">
+            <i class="fas fa-hiking fa-2x text-gray-800"></i> <!-- Hiking Icon -->
+            <i class="fas fa-camera fa-2x text-gray-800"></i> <!-- Photography Icon -->
+            <i class="fas fa-brain fa-2x text-gray-800"></i> <!-- Problem-solving Icon -->
+            <i class="fas fa-laptop-code fa-2x text-gray-800"></i> <!-- Coding Icon -->
+        </div>
+        <div class="text-center text-gray-600 max-w-2xl mx-auto">
+            <p class="text-xl mb-4">
+                I enjoy coding, solving complex puzzles, and learning about new technologies. My interests also extend beyond the digital world. 
+                I love exploring nature, hiking, and capturing beautiful moments through photography.
+            </p>
+
+            <!-- Font Awesome Icons for Interests -->
+           
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Contact Us Section -->
+<section id="contact" class="min-h-screen py-20" style="background-color:#f2f1f0; border-top-left-radius: 100px; border-top-right-radius: 100px; ">
+    <h2 class="text-3xl lg:text-6xl font-bold text-center gradient-text mb-12">Contact Us</h2>
+
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <form action="#" method="POST" class="space-y-6">
+            <div class="flex flex-col md:flex-row gap-4">
+                <input type="text" name="name" placeholder="Your Name" class="w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <input type="email" name="email" placeholder="Your Email" class="w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <input type="text" name="subject" placeholder="Subject" class="w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <textarea name="message" rows="4" placeholder="Message" class="w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+            <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800 transition duration-300 ease-in-out transform hover:scale-105">Submit</button>
+        
+        </form>
+        
+    </div>
+
+    <div class="flex justify-center gap-4 mt-16">
+        <a href="mailto:i222673@nu.edu.pk" class="flex items-center space-x-2 hover:underline">
+            <i class="fas fa-envelope text-xl"></i>
+            <!-- Hide text on small screens, show on md+ screens -->
+            <span class="hidden md:inline">i222673@nu.edu.pk</span>
+        </a>
+        <a href="tel:+923360579307" class="flex items-center space-x-2 hover:underline">
+            <i class="fas fa-phone text-xl"></i>
+            <!-- Hide text on small screens, show on md+ screens -->
+            <span class="hidden md:inline">(+92) 3360579307</span>
+        </a>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer class="bg-transparent py-6 border-t border-gray-300">
+    <div class="flex justify-between items-center max-w-7xl mx-auto px-6">
+        <!-- Left side: Email and Phone with icons -->
+        <p class="text-gray-600">&copy; 2024 Haris. All rights reserved.</p>
+
+        <!-- Right side: Social Media Links with icons -->
+        <div class="space-x-4 flex">
+            <a href="https://www.linkedin.com" class="flex items-center space-x-2 hover:underline">
+                <i class="fab fa-linkedin text-xl"></i>
+                <!-- Hide text on small screens, show on md+ screens -->
+                <span class="hidden md:inline">LinkedIn</span>
+            </a>
+            <a href="https://www.twitter.com" class="flex items-center space-x-2 hover:underline">
+                <i class="fab fa-twitter text-xl"></i>
+                <!-- Hide text on small screens, show on md+ screens -->
+                <span class="hidden md:inline">Twitter</span>
+            </a>
+            <a href="https://www.instagram.com" class="flex items-center space-x-2 hover:underline">
+                <i class="fab fa-instagram text-xl"></i>
+                <!-- Hide text on small screens, show on md+ screens -->
+                <span class="hidden md:inline">Instagram</span>
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+
+</html>
